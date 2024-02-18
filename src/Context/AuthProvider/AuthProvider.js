@@ -49,7 +49,6 @@ const unsubscribe = onAuthStateChanged(auth, currentUser =>{
         logOut,
         user,
         loading
-
     }
     return (
         <AuthContext.Provider value={authInfo}>
