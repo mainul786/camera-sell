@@ -12,12 +12,12 @@ const firebaseConfig = {
 //   messagingSenderId: "363167512126",
 //   appId: "1:363167512126:web:406141d5a1559952c2436f"
 
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.process.env.authDomain,
-  projectId:process.env.process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storeageBucket,
+  apiKey:process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
   messagingSenderId:process.env.REACT_APP_messagingSenderId,
-  appId: PerformanceObserverEntryList.env.REACT_APP_appId
+  appId:process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
