@@ -4,12 +4,12 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
-const {logOut} = useContext(AuthContext);
+const {logOut, user} = useContext(AuthContext);
 
 const userlogOut = () =>{
 logOut()
 .then(()=>{
-  toast.error('user logout successfully')
+  
 })
 .catch(error => console.log(error))
 }
@@ -17,8 +17,15 @@ logOut()
     <li className='me-3'><Link to='/'>Home</Link></li>
     <li className='me-3'><Link to='/'>About</Link></li>
     <li className='me-3'><Link to='/'>Contact us</Link></li>
-    <li className='me-3'><Link to='/signup'>Register</Link></li>
-    <li className='me-3' onClick={userlogOut()}><Link to='/'>SignOut</Link></li>
+    {
+      user?.email ?
+      <li className='me-3' onClick={userlogOut()}><Link to='/'>SignOut</Link></li>
+      :
+      <>
+      <li className='me-3'><Link to='/signup'>Register</Link></li>
+      <li className='me-3'><Link to='/login'>Login</Link></li>
+      </>
+    }
     </>
 
     return (
@@ -38,9 +45,6 @@ logOut()
           <ul className="menu menu-horizontal px-1">
             {menuItems}
           </ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
         </div>
       </div>  
     );
