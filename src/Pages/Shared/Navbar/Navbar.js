@@ -1,32 +1,31 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import toast from 'react-hot-toast';
+
 
 const Navbar = () => {
 const {logOut, user} = useContext(AuthContext);
 
 const userlogOut = () =>{
 logOut()
-.then(()=>{
-  
-})
+.then(()=>{})
 .catch(error => console.log(error))
 }
-    const menuItems = <>
+    const menuItems = <React.Fragment>
     <li className='me-3'><Link to='/'>Home</Link></li>
     <li className='me-3'><Link to='/'>About</Link></li>
     <li className='me-3'><Link to='/'>Contact us</Link></li>
     {
-      user?.email ?
-      <li className='me-3' onClick={userlogOut()}><Link to='/'>SignOut</Link></li>
-      :
+      user?.uid ?
+      
+      <li className='me-3' ><button onClick={userlogOut}>Logout</button></li>:
       <>
       <li className='me-3'><Link to='/signup'>Register</Link></li>
       <li className='me-3'><Link to='/login'>Login</Link></li>
       </>
+      
     }
-    </>
+    </React.Fragment>
 
     return (
         <div className="navbar bg-base-100">
